@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var passwordText = document.querySelector("#password");
+var passwordText = document.querySelector("#pwtext");
 passwordText.innerHTML = "Your generated password";
 
 // Function to prompt user to choose character classes.
@@ -8,7 +8,7 @@ function askForCharacterClass(question) {
   return confirm('Do you want to include ' + question + '?')
 }
 
-const DEBUG = false; // Set to true to enable extra logging.
+const DEBUG = true; // Set to true to enable extra logging.
 
 function debug(string) {
   if (DEBUG) {
@@ -24,7 +24,7 @@ function generatePassword() {
   var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var lowerCase = upperCase.toLowerCase(); //might just remove this later and do the conversion as needed later.
   var numbers = '0123456789';
-  var symbols = '!@#$%^&*()_+{}:"<>?| ';
+  var symbols = '!@#$%^&*()_+{}:"<>?|';
 
   // declare other variables or constants.
   const MIN_PWLENGTH = 8;
@@ -88,7 +88,7 @@ function writePassword() {
   
   var password = generatePassword();
   
-  passwordText.innerHTML = password;
+  passwordText.innerHTML = '<code>' + password + '</code>';
 
   // Make the password selected by default when active.
   // Using a variable that is set to none in the stylesheet.
