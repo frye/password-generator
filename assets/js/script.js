@@ -6,7 +6,7 @@ function askForCharacterClass(question) {
   return confirm('Do you want to include ' + question + '?')
 }
 
-const DEBUG = true; // Set to true to enable extra logging.
+const DEBUG = false; // Set to true to enable extra logging.
 
 function debug(string) {
   if (DEBUG) {
