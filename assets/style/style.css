@@ -104,6 +104,7 @@ button[disabled] {
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
+  height: 100%;
   appearance: none;
   border: none;
   display: block;

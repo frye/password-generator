@@ -1,5 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password");
+passwordText.innerHTML = "Your generated password";
 
 // Function to prompt user to choose character classes.
 function askForCharacterClass(question) {
@@ -83,13 +85,13 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
+  
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
+  
   passwordText.innerHTML = password;
 
   // Make the password selected by default when active.
-  // Since pre element style cannot be changed directly it is using a variable that we can change.
+  // Using a variable that is set to none in the stylesheet.
   document.body.style.setProperty('--user-select', 'all');
 
 }
