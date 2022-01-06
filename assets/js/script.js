@@ -35,7 +35,8 @@ function generatePassword() {
   // Prompts to get user input on password length and what character classes to include.
   passwordLength = prompt('Enter desired password length: ', MIN_PWLENGTH);
   if (passwordLength < MIN_PWLENGTH || passwordLength > MAX_PWLENGTH) {
-    alert('Entered password lengt is not between 8 and 124 characters. Using default: ' + MIN_PWLENGTH);
+    alert('Entered password lengt is not between ' + MIN_PWLENGTH + ' and ' +MAX_PWLENGTH + ' characters. Using default: ' + MIN_PWLENGTH);
+    passwordLength = MIN_PWLENGTH;
   }
 
   // Ask the user what character classes they want in the password.
