@@ -101,6 +101,7 @@ function writePassword() {
   // Make the password selected by default when active.
   // Using a variable that is set to none in the stylesheet.
   document.body.style.setProperty('--user-select', 'all');
+  document.body.style.setProperty('--hover-color', 'black');
 
 }
 
