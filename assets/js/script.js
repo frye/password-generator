@@ -6,10 +6,18 @@ function askForCharacterClass(question) {
   return confirm('Do you want to include ' + question + '?')
 }
 
+const DEBUG = true; // Set to true to enable extra logging.
+
+function debug(string) {
+  if (DEBUG) {
+    console.log(string);
+  }
+}
+
 // Generating the password based on user selections
 function generatePassword() {
 
-// Declare the strings that contain the different character classes.
+  // Declare the strings that contain the different character classes.
 
   var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var lowerCase = upperCase.toLowerCase(); //might just remove this later and do the conversion as needed later.
@@ -19,6 +27,7 @@ function generatePassword() {
   // declare other variables or constants.
   const MIN_PWLENGTH = 8;
   const MAX_PWLENGTH = 124; //might remove this later. I guess we could just go on ang generate even longer passwords.
+
   var characterString = ''; // We will add the character classes here based on user feedback and then use it to generate the PW.
   var passwordString = '';
   var passwordLength = MIN_PWLENGTH; //initial length, can be overridden by user.
@@ -30,34 +39,39 @@ function generatePassword() {
   }
 
   // Ask the user what character classes they want in the password.
-  if ( askForCharacterClass('uppercase letters') ) {
+  if (askForCharacterClass('uppercase letters')) {
     characterString += upperCase;
+    debug('Adding upperCase');
   }
-  if ( askForCharacterClass('lowercase letters') ) {
+  if (askForCharacterClass('lowercase letters')) {
     characterString += lowerCase;
+    debug('Adding lowercase');
   }
-  if ( askForCharacterClass('numbers') ) {
+  if (askForCharacterClass('numbers')) {
     characterString += numbers;
+    debug('Adding numbers');
   }
-  if ( askForCharacterClass('symbols') ) {
+  if (askForCharacterClass('symbols')) {
     characterString += symbols;
+    debug('Adding symbols');
   }
 
-  if (characterString.length === 0 ) {
+  if (characterString.length === 0) {
     alert('No character classes selected. Using all uppercase letters.');
     characterString += upperCase;
   }
 
-  console.log(characterString);
+  debug('Characters that will be used: ' + characterString);
+
 
   // Generate the actual password.
 
-  for (var i = 0; i < passwordLength; i++ ) {
+  for (var i = 0; i < passwordLength; i++) {
     var index = Math.floor(Math.random() * characterString.length);
     passwordString += characterString.substring(index, index + 1);
-    console.log(passwordString);
   }
-  console.log(passwordString)
+
+  debug('Generated password: ' + passwordString);
   // Return the generated password to be added into the webpage.
   return passwordString;
 }
