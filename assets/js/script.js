@@ -36,8 +36,11 @@ function generatePassword() {
   passwordLength = prompt('Enter desired password length: ', MIN_PWLENGTH);
   if (passwordLength < MIN_PWLENGTH || passwordLength > MAX_PWLENGTH) {
     alert('Entered password lengt is not between ' + MIN_PWLENGTH + ' and ' +MAX_PWLENGTH + ' characters. Using default: ' + MIN_PWLENGTH);
+    debug('User selected invalid password length, using default.');
     passwordLength = MIN_PWLENGTH;
   }
+
+  debug('Selected password length: ' + passwordLength);
 
   // Ask the user what character classes they want in the password.
   if (askForCharacterClass('uppercase letters')) {
@@ -59,6 +62,7 @@ function generatePassword() {
 
   if (characterString.length === 0) {
     alert('No character classes selected. Using all uppercase letters.');
+    debug('User selected no character classes, using defaults.');
     characterString += upperCase;
   }
 
