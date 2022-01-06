@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --user-select: none;
+}
+
 html,
 body,
 .wrapper {
@@ -116,6 +120,10 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+
+#password:active {
+  user-select: var(--user-select);
 }
 
 @media (max-width: 690px) {

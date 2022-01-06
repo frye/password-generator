@@ -22,7 +22,7 @@ function generatePassword() {
   var upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var lowerCase = upperCase.toLowerCase(); //might just remove this later and do the conversion as needed later.
   var numbers = '0123456789';
-  var symbols = '!@#$%^&*()_+{}:"<>?|';
+  var symbols = '!@#$%^&*()_+{}:"<>?| ';
 
   // declare other variables or constants.
   const MIN_PWLENGTH = 8;
@@ -86,7 +86,11 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.innerHTML = password;
+
+  // Make the password selected by default when active.
+  // Since pre element style cannot be changed directly it is using a variable that we can change.
+  document.body.style.setProperty('--user-select', 'all');
 
 }
 
