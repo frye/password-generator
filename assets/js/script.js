@@ -8,7 +8,7 @@ function askForCharacterClass(question) {
   return confirm('Do you want to include ' + question + '?')
 }
 
-const DEBUG = true; // Set to true to enable extra logging.
+const DEBUG = false; // Set to true to enable extra logging.
 
 function debug(string) {
   if (DEBUG) {
@@ -92,6 +92,9 @@ function writePassword() {
 
   password = password.replace(/</g, '&lt;');
   password = password.replace(/>/g, '&gt;');
+  password = password.replace(/"/g, '&quot;');
+
+  debug('Escaped string: ' + password);
   
   passwordText.innerHTML = password;
 
