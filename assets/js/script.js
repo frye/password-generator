@@ -87,8 +87,13 @@ function generatePassword() {
 function writePassword() {
   
   var password = generatePassword();
+
+  debug('Password length: ' + password.length);
+
+  password = password.replace(/</g, '&lt;');
+  password = password.replace(/>/g, '&gt;');
   
-  passwordText.innerHTML = '<code>' + password + '</code>';
+  passwordText.innerHTML = password;
 
   // Make the password selected by default when active.
   // Using a variable that is set to none in the stylesheet.
