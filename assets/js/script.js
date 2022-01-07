@@ -28,8 +28,7 @@ function generatePassword() {
 
   // declare other variables or constants.
   const MIN_PWLENGTH = 8;
-  const MAX_PWLENGTH = 124; //might remove this later. I guess we could just go on ang generate even longer passwords.
-
+  const MAX_PWLENGTH = 128; // This is kind of arbitrary. But added here as it is a requirement.
   var characterString = ''; // We will add the character classes here based on user feedback and then use it to generate the PW.
   var passwordString = '';
   var passwordLength = MIN_PWLENGTH; //initial length, can be overridden by user.
